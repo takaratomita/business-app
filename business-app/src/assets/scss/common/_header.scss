@@ -1,0 +1,92 @@
+header {
+    background: $maincolor;
+    .header-wrapper {
+        padding: 5px 15px;
+    }
+    .header-inner {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header-hamburger {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            @include mq() {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        .header-serch {
+            margin: 0 10px;
+            position: relative;
+            input {
+                background:$white;
+                border-radius: 5px;
+                padding: 1px 5px;
+                width: 100%;
+                font-size: 12px;
+                @include mq() {
+                    padding: 3px 10px;
+                    width: 400px;
+                }
+                // &:focus ~ .serch-result {
+                //     display: block;
+                // }
+            }
+            .serch-result {
+                display: block;
+                list-style: none;
+                position: absolute;
+                width: 100%;
+                background: $whitesmoke;
+                top: 28px;
+                left: 0;
+                z-index: 2;
+                li {
+                    padding: 5px 10px;
+                    border-bottom: $darkgray 1px solid;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items:center;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    span {
+                        &:first-of-type {
+                            display: -webkit-inline-box;
+                            width:250px;
+                            overflow: hidden;
+                            overflow-wrap: anywhere;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 1;
+                        }
+                        &:last-of-type {
+                            font-size: .9em;
+                            color: $lightgray;
+                        }
+                    }
+                }
+            }
+        }
+        .header-user-icon {
+            position: relative;
+            background: $white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            @include mq() {
+                width: 40px;
+                height: 40px;
+            }
+            i {
+                color: $dimgray;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}

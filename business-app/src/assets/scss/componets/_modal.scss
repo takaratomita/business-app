@@ -1,0 +1,88 @@
+.modal {
+    background: rgba(0, 0, 0, 0.37);
+    position: fixed;
+    top: -50%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity .3s;
+    input {
+        outline: none;
+        border-bottom: 1px solid $subcolor;
+        width: 350px;
+    }
+    form, .display {
+        position: absolute;
+        z-index: 5;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        height: auto;
+        border-radius: 5px;
+        background: $white;
+        padding: 40px 20px;
+        text-align: left;
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        i {
+            font-size: 20px !important;
+            color: $darkgray;
+            cursor: pointer;
+            &.fa-sign-in-alt, &.fa-times {
+                position: absolute;
+            }
+            &.fa-sign-in-alt {
+                bottom: 10px;
+                right: 10px;
+            }
+            &.fa-times {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    }
+        label:first-of-type {
+            margin-bottom: 30px;
+        }
+        label:nth-of-type(2) {
+            margin: 0 0 0 70px;
+            input {
+                display: block;
+                width: 250px;
+                border-bottom: 1px solid $dimgray;
+                margin-bottom: 10px;
+            }
+        }
+    &.active {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        z-index: 4;
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+// .fade {
+//     &-enter {
+//         opacity: 0;
+//         &-to {
+//             opacity: 1;
+//         }
+//         &-active {
+//             transition: opacity .3s;
+//         }
+//     }
+//     &-leave {
+//         opacity: 0;
+//         &-to {
+//             opacity: 1;
+//         }
+//         &-active {
+//             transition: opacity .3s;
+//         }
+//     }
+// }

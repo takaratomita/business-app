@@ -1,0 +1,41 @@
+.left-menus
+    .left-contents 
+        .workspacies 
+            .contents-wrapper
+                .workspacies-inner
+                    .workspace.btn.hov.hov-scale 
+                        i.fas.fa-building
+                    .workspace.btn.hov.hov-scale
+                        i.far.fa-building
+                    .workspace.btn.hov.hov-scale
+                        i.fas.fa-plus
+        .configs 
+            .contents-wrapper
+                .configs-inner
+                    .config-menu.btn.hov.hov-rotate 
+                        i.fas.fa-cog
+    .right-contents
+        .contents-wrapper
+            h1.contents-header ワークスペース名
+                .content-block.project
+                    h3.contents-header_sub プロジェクト
+                    ul.scroll
+                        - for (var i = 1; i < 31; i++)
+                            if i == 1
+                                li.btn.hov.hov-colored.selected
+                                    .ico-wrap
+                                        i.fas.fa-building
+                                    span プロジェクト #{i}
+                            else
+                                li.btn.hov.hov-colored 
+                                    .ico-wrap
+                                        i.fas.fa-building
+                                    span プロジェクト #{i}
+            .content-block.dm
+                h3.contents-header_sub ダイレクトメッセージ
+                ul.scroll
+                    - for (var i = 1; i < 20; i++)
+                        li.btn.hov.hov-colored  
+                            .ico-wrap
+                                i.fas.fa-user
+                            span ユーザー #{i}

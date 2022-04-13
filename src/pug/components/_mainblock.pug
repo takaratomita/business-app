@@ -1,0 +1,55 @@
+.mainblock 
+    .mainblock-top 
+        .contents-wrapper
+            .mainblock-top_inner
+                h1.contents-header プロジェクト１：
+                .gauge
+                    .gauge-bar
+                    .gauge-mark
+                p 33%
+            .mainblock-top_inner_bico
+                label
+                    input(type="checkbox", name="")
+                    i.fas.fa-chevron-down.btn
+                    .mainblock-top_menu 
+                        .tasks
+                            ul.scroll
+                                - for (var i = 1; i < 6; i++)
+                                    - if (i <= 2)
+                                        li.done タスク#{i}
+                                    - else if (i == 3)
+                                        li.current タスク#{i}
+                                    - else 
+                                        li タスク#{i}
+                            ul.child-tasks
+                                - for (var i = 1; i < 6; i++)
+                                    li
+                                        input(type="checkbox", name="child-task", id=`child-task${i}`) 
+                                        label(for=`child-task${i}`) 子タスク#{i}
+
+
+                        .links
+                            ul
+                                - for (var i = 1; i <= 3; i++)
+                                    li
+                                        a(href="#") 参考#{i} 
+                        .documents
+                            ul
+                                - for (var i = 1; i <= 3; i++)
+                                    li
+                                        a(href="#") 文書#{i} 
+                        .members
+                            ul.scroll
+                                - for (var i = 1; i <= 15; i++)
+                                    li メンバー#{i}
+    .mainblock-middle 
+    .mainblock-bottom 
+        .contents-wrapper
+            form(action="") 
+                .submit-area 
+                    //- input(type="text", name="", class="submit-text focus border-lightgray")
+                    textarea(name="", cols="30", rows="10" class="submit-text focus border-lightgray") 
+                    button.btn.submit-btn.hov.hov-bg
+                        i.fas.fa-chevron-right
+
+    .mainblock-bottom  

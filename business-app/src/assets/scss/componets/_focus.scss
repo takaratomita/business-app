@@ -1,0 +1,18 @@
+.focus {
+    border: 2px solid $white;
+    transition: border ease .3s;
+    box-sizing: border-box;
+    &.border-lightgray {
+        border: 2px solid $lightgray;
+    }
+    &.border-none {
+        border: none;
+        &:focus {
+            border: none !important;
+        }
+    }
+    &:focus {
+        outline: none;
+        border: 2px solid $accentcolor !important;
+    }
+}
