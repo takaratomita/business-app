@@ -48,4 +48,19 @@
             bottom: 6px;
         }
     }
-}
+    &.active {
+            span{
+                &:first-child{
+                    -webkit-transform: translateY(10px) rotate(-315deg);
+                    transform: translateY(10px) rotate(-315deg);
+                }
+                &:nth-child(2){
+                    opacity: 0;
+                }
+                &:nth-child(3){
+                    -webkit-transform: translateY(-10px) rotate(315deg);
+                    transform: translateY(-10px) rotate(315deg);
+                } 
+            }
+        }
+    }

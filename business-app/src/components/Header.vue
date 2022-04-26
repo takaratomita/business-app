@@ -2,10 +2,10 @@
   <header>
     <div class="header-wrapper">
       <div class="header-inner">
-        <div class="header-hamburger btn" id="hamburger" @click="isHamburger">
-          <label class="hamburger"
+        <div :class="{'header-hamburger': true, btn: true, active: hamburger}" id="hamburger" @click="isHamburger">
+          <div class="hamburger"
             ><span></span><span></span><span></span
-          ></label>
+          ></div>
         </div>
         <div class="header-serch">
           <form action=""></form>
@@ -60,19 +60,24 @@ export default defineComponent({
   setup(props: Props, { emit }) {
     let serchInputResults = ref([] as any[]);
 
-    let hamburger = false;
+    let hamburger = ref(false);
     let serchInput = ref('');
     let serching = false;
-    let clicked = ref(false);
 
-    let isHamburger = () => {
-      if (!hamburger) {
-        hamburger = true;
+    const isHamburger = () => {
+
+      if (!hamburger.value) {
+        hamburger.value = true;
       } else {
-        hamburger = false;
+        hamburger.value = false;
       }
-      emit('hamburger', hamburger);
+      emit('isHamburger', hamburger.value);
     };
+
+    // プロジェクト・ユーザーを選んでも、ハンバーガーイベント発動
+    Array.prototype.forEach.call(document.querySelectorAll('.right-contents li'), (e:HTMLElement) => {
+      e.addEventListener('click', isHamburger);
+    });
 
     const serchMessage = () => {
       // 検索結果初期化
@@ -105,6 +110,8 @@ export default defineComponent({
       serchMessage,
       serching,
       changeRoom,
+      hamburger,
+      isHamburger,
     };
   },
 });

@@ -3,7 +3,7 @@
     <!-- プロジェクトだったら表示 -->
     <div v-show="isProjectMenu">
       <div class="mainblock-top_inner">
-        <h1 class="contents-header">{{ selectName }}：</h1>
+        <h3 class="contents-header">{{ selectName }}：</h3>
         <div class="gauge">
           <div class="gauge-bar" id="gauge-bar"></div>
           <div class="gauge-mark"></div>
@@ -41,8 +41,8 @@
                 </select>
                 <label class="cp_sl06_selectlabel">Choose</label>
               </div>
-              <ul class="child-tasks">
-                <li
+              <ul class="child-tasks scroll" v-if="tasks[0].child[0].task !== ''">
+                <li class="checkbox-list"
                   v-for="(childTask, index) in tasks[selectNumber].child"
                   :key="index"
                 >
@@ -99,12 +99,12 @@
             <!-- ▲タスク▲ -->
             <!-- ▼リンク▼ -->
             <div class="links mainblock-top_menu__child">
-              <ul v-if="links[0].link === ''">
+              <ul class="scroll" v-if="links[0].link === ''">
                 <li class="first" @click.prevent="isActiveModal = 2">
                   <a href="#">リンクを追加</a>
                 </li>
               </ul>
-              <ul v-else>
+              <ul class="scroll" v-else>
                 <li v-for="(link, index) in links" :key="index">
                   <a :href="link.link" target="_blank">{{ link.text }}</a>
                 </li>
@@ -150,12 +150,12 @@
             <!-- ▲リンク▲ -->
             <!-- ▼文書▼ -->
             <div class="documents mainblock-top_menu__child">
-              <ul v-if="documents[0].title === ''">
+              <ul class="scroll" v-if="documents[0].title === ''">
                 <li class="first" @click.prevent="isActiveModal = 3">
                   <a href="#">文書を追加</a>
                 </li>
               </ul>
-              <ul v-else>
+              <ul class="scroll" v-else>
                 <li v-for="(document, index) in documents" :key="index">
                   <a :href="document.id" @click.prevent="isActiveModal = 4; documentUse('display', index)">{{ document.title }}</a>
                 </li>
@@ -165,7 +165,7 @@
               <div
                 :class="{
                   modal: true,
-                  'modal-links': true,
+                  'modal-documents': true,
                   active: isActiveModal === 3 ? true : false,
                 }"
                 @click="isActiveModal = 0"
@@ -185,7 +185,7 @@
                       v-model="inputDocument.title"
                   /></label>
                   <label>
-                    <textarea name="" id="" cols="30" rows="10" v-model="inputDocument.text"></textarea>
+                    <textarea class="focus" name="" id="" cols="30" rows="10" v-model="inputDocument.text"></textarea>
                   </label>
                   <i class="fas fa-sign-in-alt" @click="documentUse('add')"></i>
                 </form>
@@ -201,7 +201,7 @@
                 @click="isActiveModal = 0"
               >
                 <div class="display" @click.stop="isActiveModal = 4">
-                  <h1 id="document-title">aaa</h1>
+                  <h3 id="document-title">aaa</h3>
                   <p id="document-text">aaa</p>
                 </div>
               </div>

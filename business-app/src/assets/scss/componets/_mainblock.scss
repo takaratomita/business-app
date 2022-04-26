@@ -135,8 +135,8 @@
             }
             .mainblock-top_menu {
                 display: none;
-                justify-content: space-around;
                 flex-direction: row;
+                justify-content: space-around;
                 flex-wrap: wrap;
                 margin-top: 20px;
                 @include mq() {
@@ -148,9 +148,30 @@
                 }
                 .mainblock-top_menu__child {
                     position: relative;
+                    user-select: none;
+                    ul {
+                        overflow-y: scroll;
+                        height: 30px;
+                        @include mq() {
+                            height: 140px;
+                        }
+                    }
+                    li {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
                     &:hover {
                         .fa-edit {
                             opacity: 1;
+                        }
+                    }
+                    i {
+                        margin: 10px;
+                        opacity: 1;
+                        color: $lightgray;
+                        @include mq() {
+                            opacity: 0;
                         }
                     }
                 }
@@ -166,14 +187,14 @@
                     ul.scroll {
                         display: inline-block;
                         height: 80px;
-                        line-height: 30px;
+                        line-height: 23px;
                         overflow-y: scroll;
                         font-weight: bolder;
                         width: 50%;
                         @include mq() {
                             margin-bottom: 15px;
-                            width: 200px;
-                            height: 50px;
+                            width: 90%;
+                            height: 70px;
                         }
                         .done {
                             text-decoration: line-through;
@@ -206,24 +227,13 @@
                             list-style: none;
                             text-align: left;
                             padding-left: 30px;
+                            margin-bottom: 0;
                             input {
                                 display: none;
                                 &:checked ~ label {
                                     text-decoration: line-through;
                                     color: $lightgray;
                                     position: relative;
-                                   &::after {
-                                        content: '';
-                                        display: block;
-                                        position: absolute;
-                                        top: .5em;
-                                        left: -1.5em;
-                                        width: 10px;
-                                        height: 5px;
-                                        border-left: 2px solid $accentcolor;
-                                        border-bottom: 2px solid $accentcolor;
-                                        transform: rotate(-45deg);
-                                   }
                                 }
                             }
                         }
@@ -231,11 +241,13 @@
                 }
                 .links, .documents {
                     line-height: 30px;
-                    margin: 20px 0;
+                    margin: 15px 0;
                     padding: 0 10px;
-                    // box-sizing: border-box;
                     text-align: left;
+                    width: 50%;
                     @include mq() {
+                        margin: 20px 0;
+                        width: auto;
                         margin: 0;
                     }
                     li {
@@ -274,16 +286,23 @@
                    }
                 }
                 .members {
+                    width: 50%;
+                    margin: 15px 0;
+                    @include mq() {
+                        margin: 20px 0;
+                        width: auto;
+                    }
                     ul {
-                        height: 100px;
+                        height: 90px;
                         width: 200px;
                         display: block;
-                        line-height: 30px;
+                        line-height: 23px;
                         overflow-y: scroll;
                         font-weight: bolder;
                         margin-bottom: 15px;
                         @include mq() {
-                            height: 150px;
+                            line-height: 30px;
+                            // height: 150px;
                         }
                     }
                 }

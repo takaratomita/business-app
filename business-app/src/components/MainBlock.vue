@@ -1,7 +1,7 @@
 <template>
   <div class="mainblock">
     <div class="non-selected active" id="non-selected">
-      プロジェクト または ユーザーを<br />選択してください
+      プロジェクト または ユーザーを<br>選択してください
     </div>
     <div class="mainblock-wrap" id="mainblock">
       <div class="mainblock-top">
